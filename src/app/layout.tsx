@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import  "bootstrap/dist/css/bootstrap.min.css"
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+    
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -27,6 +30,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link
+              href="/"
+              className="nav-item nav-link active text-white p-2 btn btn-info btn-lg me-3 mt-1 mt-sm-2"
+              style={{fontSize: "30px"}}> Home<span className="sr-only">(current)</span></Link>
+          <Link
+              href="/calculator"
+              className="nav-item nav-link active text-white p-2 btn btn-info btn-lg me-3 mt-1 mt-sm-2"
+              style={{fontSize: "30px"}}> Calculater<span className="sr-only">(current)</span></Link>
+          <Link
+              href="/navbar"
+              className="nav-item nav-link active text-white p-2 btn btn-info btn-lg me-3 mt-1 mt-sm-2"
+              style={{fontSize: "30px"}}> Navbar<span className="sr-only">(current)</span></Link>
+          <Link
+              href="/sum"
+              className="nav-item nav-link active text-white p-2 btn btn-info btn-lg me-3 mt-1 mt-sm-2"
+              style={{fontSize: "30px"}}> Sum<span className="sr-only">(current)</span></Link>
+
+      </nav>
         {children}
       </body>
     </html>
